@@ -9,19 +9,21 @@
 # Например: 20 м*5000 м*25 кг*5 см = 12500 т.
 
 class Road:
-    def __init__(self, _length, _width):
-        self._length = _length
-        self._width = _width
+    _length = None # длина
+    _width = None # ширина
+    weigth = None # масса
+    thickness = None # толщина
 
-    def mass(self):
-        return self._length * self._width
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def intake(self):
+        self.weigth = 25
+        self.thickness = 0.05
+        intake = self.length * self.width * self.weigth * self.thickness
+        print(intake)
 
 
-class MassCount(Road):
-    def __init__(self, _length, _width, volume):
-        super().__init__(_length, _width)
-        self.volume = volume
-
-
-r = MassCount(100000, 25, 5)
-print(r.mass())
+my_road = Road(20000, 5)
+my_road.intake()
